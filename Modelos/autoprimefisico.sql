@@ -9,7 +9,7 @@ CREATE TABLE
         id INT PRIMARY KEY AUTO_INCREMENT,
         nome VARCHAR(100) NOT NULL,
         cnpj VARCHAR(14) UNIQUE NOT NULL,
-        telefone VARCHAR(15) NOT NULL,
+        telefone VARCHAR(20) NOT NULL,
         endereco VARCHAR(200) NOT NULL
     );
 
@@ -25,7 +25,7 @@ CREATE TABLE
         disponibilidade ENUM ('Disponível', 'Vendido') DEFAULT 'Disponível',
         zero_km enum ('S', 'N') NOT NULL,
         fornecedor_id INT,
-        FOREIGN KEY (fornecedor_id) REFERENCES Fornecedor (id)
+        FOREIGN KEY (fornecedor_id) REFERENCES Fornecedor (id) ON DELETE CASCADE
     );
 
 CREATE TABLE
@@ -34,7 +34,7 @@ CREATE TABLE
         nome VARCHAR(100) NOT NULL,
         cpf VARCHAR(11) UNIQUE NOT NULL,
         endereco VARCHAR(200) NOT NULL,
-        telefone VARCHAR(15),
+        telefone VARCHAR(20),
         email VARCHAR(50),
         data_nascimento DATE NOT NULL,
         genero ENUM ('M', 'F', 'O') NOT NULL,
@@ -59,21 +59,21 @@ CREATE TABLE
         data_venda DATE NOT NULL,
         veiculo_id INT UNIQUE NOT NULL,
         cliente_id INT NOT NULL,
-        vendedor_id INT NOT NULL,
+        vendedor_id INT,
         valor_total DECIMAL(10, 2) NOT NULL,
-        FOREIGN KEY (veiculo_id) REFERENCES Veiculo (id),
-        FOREIGN KEY (cliente_id) REFERENCES Cliente (id),
-        FOREIGN KEY (vendedor_id) REFERENCES Vendedor (id)
+        FOREIGN KEY (veiculo_id) REFERENCES Veiculo (id) ON DELETE CASCADE,
+        FOREIGN KEY (cliente_id) REFERENCES Cliente (id) ON DELETE CASCADE,
+        FOREIGN KEY (vendedor_id) REFERENCES Vendedor (id) ON DELETE SET NULL
     );
 
 CREATE TABLE
     Pagamento (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        venda_id INT,
+        venda_id INT NOT NULL,
         metodo VARCHAR(50) NOT NULL,
         valor DECIMAL(10, 2) NOT NULL,
         data_pagamento DATE NOT NULL,
-        FOREIGN KEY (venda_id) REFERENCES Venda (id)
+        FOREIGN KEY (venda_id) REFERENCES Venda (id) ON DELETE CASCADE
     );
 
 INSERT INTO
