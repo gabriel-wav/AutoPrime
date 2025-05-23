@@ -1,6 +1,6 @@
 # Banco de Dados AutoPrime
 
-# Feito por Gabriel Fernandes, Danilo Gutierre, Pedro Henrique e Antônio Ferreira
+- Feito por Gabriel Fernandes, Danilo Gutierre, Pedro Henrique e Antônio Ferreira
 
 Repositório para a atividade prática de funcionalidades de banco de dados. 
 
