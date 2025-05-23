@@ -1,5 +1,7 @@
 # Banco de Dados AutoPrime
 
+# Feito por Gabriel Fernandes, Danilo Gutierre, Pedro Henrique e Antônio Ferreira
+
 Repositório para a atividade prática de funcionalidades de banco de dados. 
 
 **Objetivo:** Criar os modelos conceitual, lógico e físico e aplicar consultas SQL, manipulação de dados, funções/procedimentos, índices e transações no banco `autoprime` que é um banco de dados de um concessionária de veículos.
